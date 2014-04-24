@@ -1,3 +1,5 @@
 <?php
 include("config.php");
-phpinfo();
+//phpinfo();
+$view = "front";
+include("controller.php");
