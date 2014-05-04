@@ -9,7 +9,7 @@ while ($row = mysql_fetch_array($r)) {
 	?>
 	<div id="produc-<?= $row["id"] ?>" class="product">
 		<div class="title">
-			<?= $row["name"] ?>
+			<a href="product.php?product=<?= $row['id'] ?>"><?= $row["name"] ?></a>
 		</div>
 		<div class="image">
 			<img src="/images/<?= $row["picurl"] ?>" />
