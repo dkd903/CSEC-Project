@@ -20,7 +20,13 @@ if (isset($_COOKIE["email"])) {
 
 		//no input sanitisation big vulnerability
 		//no check for blank input
-		$qc = "SELECT * FROM users WHERE email = '".$_GET["email"]."' AND passwd = '".$_GET["password"]."'";
+
+		//Use this input password to drop users table
+		//33'; DROP TABLE users; SELECT * FROM users WHERE email = '1
+
+		$qc = "SELECT * FROM users WHERE email = '".$_GET["email"]."' AND 
+		passwd = '".$_GET["password"]."'";
+		//exit;
 		$rc = mysql_query($qc);
 		if (mysql_num_rows($rc) == 1) {
 			$suc = 1;

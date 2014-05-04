@@ -10,6 +10,9 @@ include("header.php");
 //perform sql injection, drop the transaction
 //table
 
+//use this as the input in from to drop the transaction table
+//33'; DROP TABLE transaction; SELECT * FROM users WHERE email = '1
+
 if (!isset($_COOKIE["email"])) {
 	?>	
 		Redirecting you to store...
@@ -51,6 +54,8 @@ if (!isset($_COOKIE["email"])) {
 
 		//no input sanitisation big vulnerability
 		//no check for blank input
+
+
 		$qc = "SELECT * FROM transaction WHERE uid = '".$_COOKIE["email"]."'";
 		if ($_GET["from"] != "") {
 			$qc = $qc . "";
