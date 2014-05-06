@@ -17,6 +17,8 @@ if (isset($_COOKIE["email"])) {
 	//process signin
 	if (isset($_GET["email"]) && ($_GET["email"] != "") && isset($_GET["password"]) && isset($_GET["submitacc"])) {
 
+		//check for session token here!!!!!!!
+
 		//no input sanitisation big vulnerability
 		//no check for blank input
 		$qc = "INSERT INTO users (email,passwd) VALUES ('".$_GET["email"]."', '".$_GET["password"]."')";

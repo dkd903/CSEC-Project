@@ -1,6 +1,8 @@
 <?php
 include("config.php");
 include("header.php");
+$con=mysqli_connect("localhost","root","aaabbb3","am2");
+
 //phpinfo();
 //print_r($_GET);
 
@@ -22,18 +24,28 @@ if (isset($_COOKIE["email"])) {
 		//no check for blank input
 
 		//Use this input password to drop users table
-		//33'; DROP TABLE users; SELECT * FROM users WHERE email = '1
+		//33'; DROP TABLE users; -- 
+		//1'; UPDATE product SET price = 1 WHERE id = 7; --
 
-		$qc = "SELECT * FROM users WHERE email = '".$_GET["email"]."' AND 
+		//33'; DROP TABLE users; -- SELECT * FROM users WHERE email = '1
+		//33'; DELETE * FROM users; SELECT * FROM users WHERE email = '1
+		//33'; SELECT * FROM users WHERE email = '1
+		//x' AND passwd IN (DROP TABLE members); --
+		//' OR '1' = '1
+
+		echo $qc = "SELECT * FROM users WHERE email = '".$_GET["email"]."' AND 
 		passwd = '".$_GET["password"]."'";
 		//exit;
-		$rc = mysql_query($qc);
-		if (mysql_num_rows($rc) == 1) {
+		//$rc = mysqli_multi_query($qc);
+
+		//echo mysql_error();
+
+		if (mysqli_multi_query($con,$qc)) {
 			$suc = 1;
 			setcookie("email",$_GET["email"]);
 			?>
 				Login successful. Redirecting to product page...
-				<script>top.location.href="http://<?= $site ?>/product.php?product=<?= $_GET['next'] ?>";</script>
+				<!--<script>top.location.href="http://<?= $site ?>/product.php?product=<?= $_GET['next'] ?>";</script>-->
 			<?php
 		} else {
 			$suc = 2;

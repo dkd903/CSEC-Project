@@ -12,7 +12,7 @@ while ($row = mysql_fetch_array($r)) {
 	?>
 	<div id="produc-<?= $row["id"] ?>" class="product" style="width: 300px;border: 1px solid #C9C9C9; padding: 10px 10px; margin: 10px 0 10px 0; ">
 		<div class="image" style="float: left; width: 100px; height: 100px;">
-			<img src="/images/<?= $row["picurl"] ?>" style="width: 100px;  height: 100px;" />
+			<img src="images/<?= $row["picurl"] ?>" style="width: 100px;  height: 100px;" />
 		</div>
 		<div class="product" style="float: right; width: 180px;">
 			<a href="product.php?product=<?= $row['id'] ?>"><b style="text-transform: capitalize;"><?= $row["name"] ?></b></a>

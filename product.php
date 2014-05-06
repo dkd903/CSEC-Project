@@ -12,7 +12,7 @@ $r = mysql_query($q);
 <div>
 
 <div style="border: 1px solid #C9C9C9; width: 300px; padding: 5px 10px; margin: 10px 0 10px 0; font-size: 12px; font-weight: bold;">
-You Are Here: <a href="/">Home</a> &nbsp;&raquo;&nbsp; Product <?= $product ?></b>
+You Are Here: <a href="http://<?= $site ?>">Home</a> &nbsp;&raquo;&nbsp; Product <?= $product ?></b>
 </div>
 
 <?php
@@ -81,7 +81,7 @@ if (mysql_num_rows($r) == 0) {
 					<br />
 				</div>
 				<div class="image" style="width: 100%;">
-					<img style="width: 100%;" src="/images/<?= $row["picurl"] ?>" />
+					<img style="width: 100%;" src="images/<?= $row["picurl"] ?>" />
 				</div>
 			</div>
 			<div style="border: 1px solid #C9C9C9; width: 300px; padding: 10px; margin: 10px 0 10px 0;">
